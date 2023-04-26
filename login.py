@@ -2,6 +2,7 @@
 import pickle
 import sys
 import os
+from dotenv import load_dotenv
 
 from fake_useragent import UserAgent
 from selenium import webdriver
@@ -13,13 +14,19 @@ from selenium_stealth import stealth
 
 
 os.environ['PATH'] += r";C:/SeleniumDrivers"
-user = 'alaodine'
-mdp = 'poi098Aa@'
+
+
+load_dotenv()
+user = os.getenv('user')
+mdp = os.getenv('pass')
+
 
 userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36'
 
 
 if __name__ == "__main__":
+    print(user)
+    print(mdp)
     try:
         # ua = UserAgent(use_cache_server=False)
         # userAgent = ua['google chrome'].random
